@@ -4,11 +4,10 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'link',
 })
 export class LinkPipe implements PipeTransform {
-  transform(value: string): string {
-    let shortUrl = value.split('/')[2];
-    if (shortUrl.startsWith('www.')) {
-      return shortUrl.substring(4);
-    }
-    return shortUrl;
+  transform(url: string): string {
+    const match = url.match(
+      /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/?\n]+)/
+    );
+    return match ? match[1] : url;
   }
 }

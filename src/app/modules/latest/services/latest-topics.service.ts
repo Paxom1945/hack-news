@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { API_OPTIONS } from 'src/app/shared/consts/api-options.const';
 import { environment } from 'src/environments/environment';
 
+// TODO: нахуя этот сервис если есть TopicsService
 @Injectable()
 export class LatestTopicsService {
   private endPoints = {
